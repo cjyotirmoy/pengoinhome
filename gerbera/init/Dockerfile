@@ -1,8 +1,8 @@
 FROM ubuntu:bionic
 RUN apt-get update
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y apt-utils curl gnupg
-RUN curl -fsSL https://gerbera.io/gpg | apt-key add -
-RUN echo "deb https://dl.bintray.com/gerbera/gerbera bionic main" | tee -a /etc/apt/sources.list
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y apt-utils curl gnupg software-properties-common
+RUN curl -fsSL https://gerbera.jfrog.io/artifactory/api/gpg/key/public | apt-key add -
+RUN apt-add-repository https://gerbera.jfrog.io/artifactory/debian
 RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y gerbera sqlite3
 COPY config.xml /root/.config/gerbera/config.xml
