@@ -6,7 +6,7 @@ RUN service apache2 start
 RUN mkdir /web
 RUN mkdir /web/html/
 RUN mkdir /root/files/
-COPY webpage/ /root/files/
+COPY webpage/ /web/html/
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY startscript.sh /root/startscript.sh
