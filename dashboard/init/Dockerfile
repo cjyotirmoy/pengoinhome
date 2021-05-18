@@ -11,5 +11,6 @@ COPY apache2.conf /etc/apache2/apache2.conf
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY startscript.sh /root/startscript.sh
 RUN chmod +xxx /root/startscript.sh
+RUN chown -R www-data:www-data /web
 EXPOSE 80
 ENTRYPOINT ["sh","./root/startscript.sh"]
